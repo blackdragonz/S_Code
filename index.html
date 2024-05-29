@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แบบฟอร์มบันทึกไฟล์ไปยัง Google Drive</title>
+</head>
+<body>
+
+<form id="uploadForm" enctype="multipart/form-data">
+    <label for="name">ชื่อ:</label>
+    <input type="text" id="name" name="name"><br><br>
+    
+    <label for="file">แนบไฟล์:</label>
+    <input type="file" id="file" name="file"><br><br>
+    
+    <input type="submit" value="บันทึก">
+</form>
+
+<script>
+document.getElementById('uploadForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // ป้องกันการโหลดหน้าเว็บใหม่เมื่อกด submit
+    
+    var name = document.getElementById('name').value;
+    var file = document.getElementById('file').files[0];
+    
+    var formData = new FormData();
+    formData.append('name', name);
+    formData.append('file', file);
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'AKfycbzfgP5SshtOXvofKEZvJp9DpW-853fcImDwA-r7aOE');
+    xhr.send(formData);
+});
+</script>
+
+</body>
+</html>
